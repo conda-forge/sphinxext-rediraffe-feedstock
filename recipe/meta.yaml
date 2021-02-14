@@ -6,12 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: dc8bbe6b3334a3bfc8ed0d1d6b2e831de9c06f123fa7d635cfb8192141ca4140
-  # TODO: remove if/when merged upstream
-  - url: https://raw.githubusercontent.com/wpilibsuite/{{ name }}/v{{ version }}/LICENSE.md
-    sha256: 7dba86b73b12fc0d05e6f66799d3950a8f3952e69909ffe6372eb6b817e27ac9
-
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: dc8bbe6b3334a3bfc8ed0d1d6b2e831de9c06f123fa7d635cfb8192141ca4140
+  
 build:
   number: 0
   noarch: python
