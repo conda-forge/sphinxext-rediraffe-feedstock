@@ -1,17 +1,14 @@
 {% set name = "sphinxext-rediraffe" %}
-{% set version = "0.2.5" %}
+{% set version = "0.2.6" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: a17287cdee7763341b91762879e042b33a4916d6a2fc6d2f97a18107325bd2cc
-  # TODO: remove if/when merged upstream
-  - url: https://raw.githubusercontent.com/wpilibsuite/{{ name }}/v{{ version }}/LICENSE.md
-    sha256: 7dba86b73b12fc0d05e6f66799d3950a8f3952e69909ffe6372eb6b817e27ac9
-
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: dc8bbe6b3334a3bfc8ed0d1d6b2e831de9c06f123fa7d635cfb8192141ca4140
+  
 build:
   number: 0
   noarch: python
