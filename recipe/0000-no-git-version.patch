@@ -1,0 +1,28 @@
+diff --git a/setup.py b/setup.py
+index 1b4f6e9..342eb76 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,21 +1,12 @@
+-import subprocess
++import os
+ import setuptools
+ 
+-try:
+-    ret = subprocess.check_output(
+-        "git describe --tags --abbrev=0",
+-        shell=True,
+-    )
+-    version = ret.decode("utf-8").strip()
+-except:
+-    version = "main"
+-
+ with open("README.md", "r", encoding="utf-8") as readme:
+     long_description = readme.read()
+ 
+ setuptools.setup(
+     name="sphinxext-rediraffe",
+-    version=version,
++    version=os.environ["PKG_VERSION"],
+     author="Vasista Vovveti",
+     author_email="vasistavovveti@gmail.com",
+     description="Sphinx Extension that redirects non-existent pages to working pages.",
