@@ -1,18 +1,19 @@
-{% set name = "sphinxext-rediraffe" %}
 {% set version = "0.2.7" %}
 
 package:
-  name: {{ name }}
+  name: sphinxext-rediraffe
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/sphinxext-rediraffe/sphinxext-rediraffe-{{ version }}.tar.gz
   sha256: 651dcbfae5ffda9ffd534dfb8025f36120e5efb6ea1a33f5420023862b9f725d
+  patches:
+    - 0000-no-git-version.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
 
 requirements:
   host:
@@ -27,8 +28,11 @@ test:
     - sphinxext.rediraffe
   commands:
     - pip check
+    - pip list | grep sphinxext-rediraffe
+    - pip list | grep -iE "sphinxext-rediraffe +{{ version.replace('.', '\.') }}"
   requires:
     - pip
+    - m2-grep  # [win]
 
 about:
   home: https://github.com/wpilibsuite/sphinxext-rediraffe
