@@ -13,27 +13,29 @@ source:
 build:
   number: 2
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
     - pip
     - python {{ python_min }}
+    - setuptools
   run:
     - python >={{ python_min }}
     - sphinx >=2.0
 
 test:
+  requires:
+    - pip
+    - m2-grep  # [win]
+    - python {{ python_min }}
   imports:
     - sphinxext.rediraffe
   commands:
     - pip check
     - pip list | grep sphinxext-rediraffe
     - pip list | grep -iE "sphinxext-rediraffe +{{ version.replace('.', '\.') }}"
-  requires:
-    - pip
-    - m2-grep  # [win]
-    - python {{ python_min }}
 
 about:
   home: https://github.com/wpilibsuite/sphinxext-rediraffe
