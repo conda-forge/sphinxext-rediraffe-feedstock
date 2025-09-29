@@ -3,11 +3,13 @@ About sphinxext-rediraffe-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/sphinxext-rediraffe-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/wpilibsuite/sphinxext-rediraffe
+Home: https://github.com/sphinx-doc/sphinxext-rediraffe
 
 Package license: MIT
 
 Summary: Sphinx Extension that redirects non-existent pages to working pages.
+
+Documentation: https://sphinxext-rediraffe.readthedocs.io/
 
 Current build status
 ====================
